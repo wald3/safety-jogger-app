@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, tap } from 'rxjs/operators';
 
 import { Product } from '../shared/product';
 
@@ -10,30 +10,30 @@ import { Product } from '../shared/product';
  })
 export class ProductService {
 
-  private url = 'http://80.249.81.144:9014/api';
+  private urlTest = 'https://dfff6d1e1a54.ngrok.io';
+  private url     = 'http://80.249.81.144:9014/api';
 
   constructor(private http: HttpClient) {}
 
-  getProductsTest(): any {
-    let prod: Product[] = []
+  getTestData(): Observable<Product[]>{
+    return null;
   }
-  
 
-  getProducts(user_id: number, top_k: number = 3): Observable<any> {
-    const params = new HttpParams({
-      fromObject: {
+  getProducts(user_id: number, top_k: number=3):  Observable<any> {
+    const params = {
         user_id: user_id.toString(),
         top_k: top_k.toString(),
-      }
-    });
-    return this.http.get(this.url + '/recommended_products', { params: params })
+    };
+    console.log('user_id', user_id, '| top_k', top_k);
+    return this.http.get( `${this.urlTest}/recommended_products/${user_id}`)
+    // return this.http.get( `${this.url}/recommended_products`, { params: params })
       .pipe(
         catchError(this.handleError)
       );
   }
 
   postProducts(body: any): Observable<any> {
-    return this.http.post(this.url + '/suggestion_status', body)
+    return this.http.post(`${this.url}/suggestion_status`, body)
       .pipe(
         catchError(this.handleError)
       );

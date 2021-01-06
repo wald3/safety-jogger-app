@@ -1,5 +1,10 @@
 export interface Product {
   id: number;
-  name: string;
+  status: number;
   image_link: string;
+  product: {
+    code: string,
+    id: number
+  };
+  score: number;
 }

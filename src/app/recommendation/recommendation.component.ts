@@ -1,37 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Product } from '../shared/product';
-import { ProductService } from '../shared/product.service';
-
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recommendation',
   templateUrl: './recommendation.component.html',
-  styleUrls: ['./recommendation.component.css']
+  styleUrls: ['./recommendation.component.css'],
 })
 export class RecommendationComponent implements OnInit {
-  user_id: number;
-  products: Product[];
+  isProductListShow: boolean = false;
 
-  constructor(private productService: ProductService) { }
+  recommendForm = new FormGroup({
+    userId: new FormControl('', [
+      Validators.pattern(/^\d+$/),
+      Validators.required
+    ])
+  });
+  get getuserId(): string {
+      return this.recommendForm.get('userId').value;
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-
-    this.products = this.productService.getProductsTest()
-    
-    // .map(
-    //   p => {
-    //     return Product(){
-    //       id: p.id,
-    //       status: p.status
-    //     };
-    //   } 
-    // );
-
   }
 
-  onRecommendationClicked(){
-    this.user_id
+ formSubmit(){
+   if(this.recommendForm.invalid){
+     
+   }
+    console.log(this.recommendForm.value);
   }
 
+  // clear() { this.isProductListShow = false; }
+
+ 
+
+  // onRecomendationClick() {
+  //   this.isProductListShow = true;
+  // }
+
+
+  // viewErrors(){
+  //   this.isError = true;
+  //   setTimeout(()=>{
+  //     this.isError = false;
+  //   }, 1000)
+  // }
 }
