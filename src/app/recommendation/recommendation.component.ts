@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recommendation',
@@ -15,9 +15,7 @@ export class RecommendationComponent implements OnInit {
       Validators.required
     ])
   });
-  get getuserId(): string {
-      return this.recommendForm.get('userId').value;
-  }
+  get userId(): AbstractControl { return this.recommendForm.get('userId'); }
 
   constructor() {
   }
@@ -25,26 +23,15 @@ export class RecommendationComponent implements OnInit {
   ngOnInit(): void {
   }
 
- formSubmit(){
-   if(this.recommendForm.invalid){
-     
-   }
+  onSubmit(){
     console.log(this.recommendForm.value);
+    if(this.recommendForm.valid){
+      this.isProductListShow = true;
+    }
+  } 
+
+  onProductListClear(isShow: boolean){
+    console.log('onProductListClear');
+    this.isProductListShow = isShow;
   }
-
-  // clear() { this.isProductListShow = false; }
-
- 
-
-  // onRecomendationClick() {
-  //   this.isProductListShow = true;
-  // }
-
-
-  // viewErrors(){
-  //   this.isError = true;
-  //   setTimeout(()=>{
-  //     this.isError = false;
-  //   }, 1000)
-  // }
 }

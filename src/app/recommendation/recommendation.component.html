@@ -1,16 +1,38 @@
-
-<div class="form-group">
-    <label for="formGroupExampleInput">Custom Number</label>
-    <input 
-        [(ngModel)]='user_id'
-        type="text"
-        class="form-control"
+<div 
+    *ngIf="userId.invalid && (userId.dirty || userId.touched)"
+    class="alert alert-danger fixed-top text-center w-100"
+    role="alert"
     >
-</div>
-<div class="btn btn-primary">Recommend</div>
-<!-- <div class="col" style="background:red">
-    <div *ngFor="let product of products; index as i;">
-        <app-product [product]="product"></app-product>
-        
+    <div *ngIf="userId.errors.required">
+        <code>UserId</code> is required.
     </div>
-</div> -->
+    <div *ngIf="userId.invalid && !userId.errors.required">
+        <code>UserId</code> is incorrect, use only <b>digits</b>!
+    </div>
+</div>
+
+<div class="container">
+    <div class="item text-center">
+        <form [formGroup]="recommendForm" (ngSubmit)="onSubmit()">
+            <label 
+                for="userId">
+                Customer Number
+            </label>
+            <input 
+                id="userId"
+                formControlName="userId"
+                class="form-control"
+                [ngClass]="{ 
+                    'is-invalid': userId.invalid && (userId.dirty || userId.touched)
+                }">
+            <button
+                class="btn btn-primary w-100 mt-2"
+                type="submit">   
+                Recommend
+            </button>
+        </form>
+    </div>
+    <!-- {{ isProductListShow }} -->
+
+    <app-product-list *ngIf="isProductListShow" [userId]="userId.value" (clearListEvent)="onProductListClear($event)"></app-product-list>
+</div>

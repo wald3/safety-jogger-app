@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Product } from 'src/app/shared/product';
 
 @Component({
   selector: 'app-product',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product;
+  @Input() product: Product;
   
   constructor() { }
 
@@ -15,6 +16,6 @@ export class ProductComponent implements OnInit {
 
   changed(event){
     let check = event.target.checked;
-    alert(event.target.checked);
+    // alert(event.target.checked);
   }
 }

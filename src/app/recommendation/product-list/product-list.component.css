@@ -1,0 +1,38 @@
+.btn-container{
+    margin: auto;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-container button{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.product-container{
+    margin-top: 25px;
+    margin-bottom: 35px;
+    align-items: center;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.product{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    width: 140px;
+    /* background-color: red; */
+}

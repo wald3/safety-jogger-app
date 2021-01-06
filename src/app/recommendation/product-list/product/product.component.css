@@ -1,0 +1,34 @@
+/* STYLES */
+body{
+  text-align:center;
+}
+
+.product{
+  color: #00B74A; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #00B74A;
+  border-radius: 6px;
+}
+
+input{
+  margin: auto;
+}
+
+/* #b {
+  width: 40em;
+  height: 20em;
+  position:relative;
+  background: red;
+}
+#c {
+  position: absolute;
+  top: 1em;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  background: blue;
+} */

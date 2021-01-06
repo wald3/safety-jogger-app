@@ -1,0 +1,23 @@
+<div  class="product-container">
+    <div *ngFor="let product of products; index as i;" class="product mx-3">
+        <app-product [product]="product"></app-product>
+    </div>
+</div>
+
+<div class="btn-container">
+    <button 
+        class="btn btn-success"
+        (click)="onSubmit()">
+        Send
+    </button>
+    <button 
+        class="btn btn-secondary"
+        style="
+            background-color: darkgray;
+            border-color: darkgray;
+        "
+        (click)="onClear()">
+        Clear
+    </button>
+</div>
+

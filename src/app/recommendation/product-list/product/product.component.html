@@ -1,0 +1,12 @@
+<div>
+    <div class="product">
+        Product {{ product.id }}
+    </div>
+    
+    <input 
+        type="checkbox"
+        [checked]='product.status == 1'
+        (change)='changed($event)'
+    />
+</div>
+

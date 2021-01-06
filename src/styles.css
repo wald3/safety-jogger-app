@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+/* INPUT */
+input[type="checkbox"]{
+  outline:0px;
+  appearance:none;
+  width:40px;
+  height:20px;
+  border:1px solid #aaaaaa;
+  border-radius:25px;
+  background:#aaaaaa;
+  position:relative;
+  display:inline-block;
+  overflow:hidden;
+  vertical-align:middle;
+  transition: 0.3s;
+  box-sizing:border-box;
+}
+input[type="checkbox"]:after{
+  content:'';
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:18px;
+  height:18px;
+  background:white;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius:25px;
+  transition: left 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+input[type="checkbox"]:checked{
+  background: #1bbd3e;
+  border-color:#1bbd3e;
+}
+input[type="checkbox"]:checked:after{
+  left:20px;
+  border-color:#ffffff;
+}
+input[type="checkbox"]:focus:not(:checked):not(:disabled):after{
+  left:0px;
+}
+input[type="checkbox"]:disabled{
+  opacity:0.5;
+}
