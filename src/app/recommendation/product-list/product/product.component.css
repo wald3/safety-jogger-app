@@ -1,34 +1,23 @@
-/* STYLES */
-body{
-  text-align:center;
-}
-
-.product{
-  color: #00B74A; 
-  position: absolute;
+.product-item{
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 140px;
+  height: 140px;
   border: 1.5px solid #00B74A;
   border-radius: 6px;
 }
 
-input{
-  margin: auto;
+/* text */
+.product-item{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 140px;
+  color: #00B74A; 
 }
 
-/* #b {
-  width: 40em;
-  height: 20em;
-  position:relative;
-  background: red;
+input[type="checkbox"]{
+  position: relative;
+  display: block;
+  margin : 5px auto;
 }
-#c {
-  position: absolute;
-  top: 1em;
-  bottom: 1em;
-  left: 1em;
-  right: 1em;
-  background: blue;
-} */
+

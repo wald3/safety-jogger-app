@@ -10,7 +10,7 @@ import { Product } from '../shared/product';
  })
 export class ProductService {
 
-  private urlTest = 'https://dfff6d1e1a54.ngrok.io';
+  private urlTest = 'https://2564a6c7aca3.ngrok.io';
   private url     = 'http://80.249.81.144:9014/api';
 
   constructor(private http: HttpClient) {}

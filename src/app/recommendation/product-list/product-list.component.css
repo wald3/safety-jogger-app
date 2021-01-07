@@ -4,10 +4,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    row-gap: 10px;
 }
 
 .btn-container button{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,23 +17,22 @@
 
 .product-container{
     margin-top: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     align-items: center;
     width: 100%;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
+    grid-column-gap: 20px;
     grid-row-gap: 0px;
 }
 
 .product{
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 140px;
+    height: 175px;
     width: 140px;
     /* background-color: red; */
 }
