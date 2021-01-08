@@ -1,46 +1,83 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
-/* INPUT */
-input[type="checkbox"]{
-  outline:0px;
-  appearance:none;
-  width:40px;
-  height:20px;
-  border:1px solid #aaaaaa;
-  border-radius:25px;
-  background:#aaaaaa;
-  position:relative;
-  display:inline-block;
-  overflow:hidden;
-  vertical-align:middle;
-  transition: 0.3s;
-  box-sizing:border-box;
+.checkboxWrapper {
+  width: 40px;
+  height: 20px;
+  position: relative;
+  margin: 20px auto;
+  display: block;
 }
-input[type="checkbox"]:after{
+
+.checkboxWrapper input[type="checkbox"]:after{
   content:'';
+  cursor: pointer;
   position:absolute;
   top:0px;
   left:0px;
   width:18px;
   height:18px;
   background:white;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid white;
   border-radius:25px;
   transition: left 0.15s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: .2s;
 }
-input[type="checkbox"]:checked{
-  
-  /* d="M5 30 L 20 45 L 45 5" */
-  background: #1bbd3e;
-  border-color:#1bbd3e;
-}
+
 input[type="checkbox"]:checked:after{
-  left:20px;
-  border-color:#ffffff;
+  left: 20px;
 }
-input[type="checkbox"]:focus:not(:checked):not(:disabled):after{
-  left:0px;
+
+.checkboxWrapper .checkmark {
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  pointer-events: none;
 }
-input[type="checkbox"]:disabled{
-  opacity:0.5;
+
+.checkboxWrapper .cross {
+  position: absolute;
+  top: 6px;
+  left: 21px;
+  pointer-events: none;
+}
+
+.checkboxWrapper svg path {
+  stroke: white;
+  stroke-linecap: round;
+  stroke-width: 2;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+}
+
+.checkboxWrapper svg.checkmark path,
+.checkboxWrapper svg.cross path
+{
+  opacity: 0;
+}
+
+.checkboxWrapper input[type="checkbox"] {
+  outline:0px;
+  appearance:none;
+  width:40px;
+  height:20px;
+  border: 1px solid #aaaaaa;
+  border-radius:25px;
+  background:#aaaaaa;
+  position:relative;
+  display:inline-block;
+  overflow:hidden;
+  vertical-align:middle;
+  transition: 0.1s;
+  box-sizing:border-box;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked{
+  border: 1px solid #00B74A;
+  background-color: #00B74A;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + div svg.checkmark > path {
+  opacity: 1;
+}
+
+.checkboxWrapper input[type="checkbox"]:not(:checked) + div svg.cross > path {
+  opacity: 1;
 }

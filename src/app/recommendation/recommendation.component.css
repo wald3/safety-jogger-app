@@ -9,12 +9,8 @@
 }
 
 .item{
-    /* background-color: chartreuse; */
-    font-stretch: expanded;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 140px;
-    /* background-color: red; */
     flex-direction: column;
+    width: 140px;
 }

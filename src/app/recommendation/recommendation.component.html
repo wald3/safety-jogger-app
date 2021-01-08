@@ -1,8 +1,7 @@
 <div 
     *ngIf="userId.invalid && (userId.dirty || userId.touched)"
     class="alert alert-danger fixed-top text-center w-100"
-    role="alert"
-    >
+    role="alert">
     <div *ngIf="userId.errors.required">
         <code>UserId</code> is required.
     </div>
@@ -32,7 +31,10 @@
             </button>
         </form>
     </div>
-    <!-- {{ isProductListShow }} -->
 
-    <app-product-list *ngIf="isProductListShow" [userId]="userId.value" (clearListEvent)="onProductListClear($event)"></app-product-list>
+    <app-product-list 
+        *ngIf="isProductListShow" 
+        [userId]="userId.value"
+        (clearListEvent)="onProductListClear($event)">
+    </app-product-list>
 </div>
