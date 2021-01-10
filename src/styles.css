@@ -2,7 +2,6 @@
   width: 40px;
   height: 20px;
   position: relative;
-  margin: 20px auto;
   display: block;
 }
 
@@ -27,14 +26,14 @@ input[type="checkbox"]:checked:after{
 
 .checkboxWrapper .checkmark {
   position: absolute;
-  top: 5px;
+  top: 2px;
   left: 2px;
   pointer-events: none;
 }
 
 .checkboxWrapper .cross {
   position: absolute;
-  top: 6px;
+  top: 2px;
   left: 21px;
   pointer-events: none;
 }
@@ -64,7 +63,6 @@ input[type="checkbox"]:checked:after{
   position:relative;
   display:inline-block;
   overflow:hidden;
-  vertical-align:middle;
   transition: 0.1s;
   box-sizing:border-box;
 }

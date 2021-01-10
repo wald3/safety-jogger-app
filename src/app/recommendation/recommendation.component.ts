@@ -10,7 +10,7 @@ export class RecommendationComponent implements OnInit {
   isProductListShow: boolean = false;
 
   recommendForm = new FormGroup({
-    userId: new FormControl('', [
+    userId: new FormControl('1335', [
       Validators.pattern(/^\d+$/),
       Validators.required
     ])
@@ -24,6 +24,7 @@ export class RecommendationComponent implements OnInit {
   }
 
   onSubmit(){
+    
     console.log(this.recommendForm.value);
     if(this.recommendForm.valid){
       this.isProductListShow = true;

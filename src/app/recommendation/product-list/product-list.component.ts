@@ -8,27 +8,32 @@ import { ProductService } from 'src/app/shared/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  @Input() userId: number;
-  @Output() clearListEvent = new EventEmitter<boolean>();
-  products: Product[];
+	userIdView: number;
+	@Input() userId: number;
+	@Output() clearListEvent = new EventEmitter<boolean>();
+	products: Product[];
 
-  constructor(private productService: ProductService) {
-  }
+	constructor(private productService: ProductService) {
+		
+	}
 
   ngOnInit(): void {
-    this.productService.getProducts(this.userId)
+	this.userIdView = this.userId;
+
+    // this.productService.getProducts(this.userId)
+    this.productService.getTestData(this.userIdView.toString())
     .subscribe(
       res => {
         try {
           this.products = res.suggestion.recommendations;
         } catch (err) {
-          console.error(`No user object with userId: ${this.userId}`);
+          console.error(`No user object with userId: ${this.userIdView}`, this.products);
         }
-        
       },
       err => console.error('Error:', err), 
       () => console.log('this.products', this.products)
     );
+
   }
 
   onSubmit(){
