@@ -9,14 +9,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 git clone https://github.com/wald3/safety-jogger-app.git
 ```
 
-* Build an Angular project:
-```bash 
-ng build --prod
-```
-
 * Create a Docker Image:
 ```bash
-docker build -t ng-safety-jogger-image . 
+docker build -t ng-safety-jogger-image .
 ```
 
 * Run docker container (or find and run builded container in Docker Desktop)

@@ -66,9 +66,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "safety-jogger-app:build",
-            "proxyConfig": "proxy.conf.json"
-            
+            "browserTarget": "safety-jogger-app:build"            
           },
           "configurations": {
             "production": {

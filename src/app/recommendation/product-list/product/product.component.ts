@@ -1,21 +1,22 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { Product } from 'src/app/shared/product';
+import { Product } from 'src/app/shared/models/product';
+
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+	selector: 'app-product',
+	templateUrl: './product.component.html',
+	styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() product: Product;
-  
-  constructor() { }
+	@Input() product: Product;
+	
+	constructor() { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
-  changed(event){
-    let check = event.target.checked;
-    // alert(event.target.checked);
-  }
+	changed(event){
+		let check = event.target.checked;
+		this.product.status = check ? 1 : 0;
+	}
 }
