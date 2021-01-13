@@ -39,7 +39,6 @@ export class ProductListComponent implements OnInit {
 	}
 
 	onSubmit(){
-		console.log( this.userId, typeof( this.userId));
 		this.productService.postProducts(this.suggestionId, this.userIdView, this.products);
 		// or like this -> this.productService.postProductsMin(this.suggestionId, this.products);
 		this.onClear();

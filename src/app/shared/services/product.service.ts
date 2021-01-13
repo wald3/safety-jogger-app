@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
-import { JoggerScrapper } from '../scrapper';
+import { JoggerScrapper } from '../helpers/scrapper';
 
 import { Product } from '../models/product';
 import { Suggestion } from '../models/suggestion';
@@ -45,7 +45,7 @@ export class ProductService {
 			})),
 			"user_id": Number(userId)
 		};
-		
+
 		console.log(body);
 		this.http.post(`${this.url}/suggestion_status`, body)
 			.pipe(
